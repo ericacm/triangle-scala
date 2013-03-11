@@ -14,10 +14,11 @@ object Triangle {
   Source.fromFile("bigtriangle.txt").getLines.foreach(line => {
     val thisLine = line.trim.split(" ").map(i => new Tnode(Integer.parseInt(i)))
     if (triangle == null) triangle = thisLine(0)
-    else thisLine.indices.foreach(i => {
-      if (i > 0) lastLine(i-1).right = thisLine(i)
-      if (i < lastLine.size) lastLine(i).left = thisLine(i)
-    })
+    else 
+      thisLine.indices.foreach(i => {
+        if (i > 0) lastLine(i-1).right = thisLine(i)
+        if (i < lastLine.size) lastLine(i).left = thisLine(i)
+      })
     lastLine = thisLine
   })
 
